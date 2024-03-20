@@ -1,10 +1,15 @@
 import NavLink from "./NavLink";
 
+import { useAppDispatch } from "../../../redux/hooks";
+import { addItem, removeItem } from "../../../redux/slices/cartSlice";
+
 type NavLinksProps = {
   className?: string;
 };
 
 export default function NavLinks({ className }: NavLinksProps) {
+  const dispatch = useAppDispatch();
+  console.log("ul");
   return (
     <>
       <ul
@@ -12,17 +17,17 @@ export default function NavLinks({ className }: NavLinksProps) {
       >
         <NavLink
           onClick={() => {
-            console.log("history");
+            dispatch(addItem());
           }}
         >
-          History - ()
+          History
         </NavLink>
         <NavLink
           onClick={() => {
-            "cart";
+            dispatch(removeItem());
           }}
         >
-          Cart - ()
+          Cart
         </NavLink>
       </ul>
     </>

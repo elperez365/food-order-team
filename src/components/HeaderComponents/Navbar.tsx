@@ -1,6 +1,6 @@
 import { useState } from "react";
-import NavLinks from "./NavLinks";
-import ToggleIcon from "./ToggleIcon";
+import NavLinks from "./NavbarComponents/NavLinks";
+import ToggleIcon from "./NavbarComponents/ToggleIcon";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

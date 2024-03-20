@@ -1,7 +1,9 @@
-import React from "react";
+import ProductCard from "./ProductCard";
 
 const Products = () => {
-  return <div>Products</div>;
+  return <div>Products
+    <ProductCard />
+  </div>;
 };
 
 export default Products;

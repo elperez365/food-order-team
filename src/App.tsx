@@ -10,6 +10,7 @@ function App() {
       <p className="text bg-red-500">{counter}</p>
       <button onClick={() => dispatch(increment())}>INCREMENTA</button>
       <p>ho fatto una modific di prova</p>
+      <p>ciao a tutti - fede</p>
     </>
   );
 }

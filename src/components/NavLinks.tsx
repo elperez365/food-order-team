@@ -10,8 +10,20 @@ export default function NavLinks({ className }: NavLinksProps) {
       <ul
         className={`${className ? className + " " : ""} items-center justify-center p-4`}
       >
-        <NavLink>History - ()</NavLink>
-        <NavLink>Cart - ()</NavLink>
+        <NavLink
+          onClick={() => {
+            console.log("history");
+          }}
+        >
+          History - ()
+        </NavLink>
+        <NavLink
+          onClick={() => {
+            "cart";
+          }}
+        >
+          Cart - ()
+        </NavLink>
       </ul>
     </>
   );

@@ -1,7 +1,7 @@
 export default function Title() {
   return (
     <>
-      <section className="flex items-center justify-start gap-4 bg-slate-400 p-4">
+      <section className="flex items-center justify-start gap-4 p-4">
         <img
           src="/vite.svg"
           alt="logo"

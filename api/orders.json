@@ -1,0 +1,19 @@
+[
+  {
+    "id": "1",
+    "customer": {
+      "name": "Mario Rossi",
+      "email": "mariorossi@mail.com",
+      "street": "Via Roma 1",
+      "postalCode": "04012",
+      "city": "Anzio"
+    },
+    "date": "2015-01-01",
+    "products": [
+      { "id": 15, "price": 30, "quantity": 2 },
+      { "id": 29, "price": 60, "quantity": 1 },
+      { "id": 5, "price": 499, "quantity": 1 },
+      { "id": 22, "price": 14, "quantity": 3 }
+    ]
+  }
+]

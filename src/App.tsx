@@ -6,8 +6,10 @@ import Products from "./components/Products";
 function App() {
   return (
     <>
-      <Header />
-      <Products />
+      <div className="relative h-[200vh]">
+        <Header />
+        <Products />
+      </div>
     </>
   );
 }

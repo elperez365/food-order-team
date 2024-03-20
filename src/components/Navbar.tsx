@@ -1,4 +1,5 @@
 import { useState } from "react";
+import NavLinks from "./NavLinks";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,10 +11,7 @@ const Navbar = () => {
   return (
     <>
       <nav>
-        <ul className="hidden h-full flex-1 items-center justify-center gap-4 bg-blue-200 p-4 text-3xl font-semibold uppercase text-white drop-shadow-md md:flex">
-          <li>History - ()</li>
-          <li>Cart - ()</li>
-        </ul>
+        <NavLinks className="hidden gap-4 drop-shadow-md md:flex" />
         <div className="flex h-full items-center justify-center md:hidden">
           <button
             onClick={toggleNav}
@@ -24,10 +22,7 @@ const Navbar = () => {
         </div>
       </nav>
       {isOpen && (
-        <ul className="flex basis-full flex-col items-center justify-center gap-2 text-amber-400 md:flex md:hidden [&>*]:cursor-pointer [&>*]:p-4">
-          <li>History - ()</li>
-          <li>Cart - ()</li>
-        </ul>
+        <NavLinks className="flex basis-full flex-col items-center justify-center gap-2 md:hidden " />
       )}
     </>
   );

@@ -35,10 +35,16 @@ export default function NavLinks({ className }: NavLinksProps) {
         >
           Cart
         </NavLink>
-        <Modal isOpen={currentView !== ""}>
+        <Modal isOpen={currentView === "history"}>
           <History />
         </Modal>
-        <Modal isOpen={currentView !== ""}>
+        <Modal
+          isOpen={
+            currentView === "cart" ||
+            currentView === "checkout" ||
+            currentView === "success"
+          }
+        >
           <Cart />
         </Modal>
       </ul>

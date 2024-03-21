@@ -1,11 +1,11 @@
 import Button from "./UI/Button";
 
 type ProductCardProps = {
-  image: string;
-  title: string;
-  description: string;
-  category: string;
-  price: number;
+  image?: string;
+  title?: string;
+  description?: string;
+  category?: string;
+  price?: number;
 };
 
 const ProductCard = ({
@@ -16,6 +16,7 @@ const ProductCard = ({
   price = 27.23,
 }: ProductCardProps) => {
   return (
+
     <div className="m-auto flex w-5/6 flex-col rounded-xl border border-gray-100 bg-gray-50 p-4 shadow-xl md:h-[650px] md:w-[350px]">
       <div className="h-[350px] w-full rounded-md bg-gray-300 md:h-2/3">
         <img
@@ -34,6 +35,7 @@ const ProductCard = ({
           </span>
         </div>
         <span className="rounded-md bg-[#7b2d26] px-2 py-1 text-xs font-thin text-white">
+
           {category}
         </span>
       </div>
@@ -42,8 +44,10 @@ const ProductCard = ({
           {description}
         </p>
       </div>
+
       <div className=" flex w-full justify-between p-2">
         <Button text="Add to cart" style="classicFullSize" />
+
       </div>
     </div>
   );

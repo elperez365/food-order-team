@@ -1,7 +1,7 @@
 import NavLink from "./NavLink";
 import Cart from "../../Layout/Cart";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { closeModal, setCurrentView } from "../../../redux/slices/modalSlice";
+import { setCurrentView } from "../../../redux/slices/modalSlice";
 import Modal from "../../Modal/Modal";
 import { RootState } from "../../../redux/store";
 

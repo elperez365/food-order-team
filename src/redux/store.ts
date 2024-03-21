@@ -3,6 +3,7 @@ import counterSlice from "./slices/counterSlice";
 import cartSlice from "./slices/cartSlice";
 import navbarSlice from "./slices/navbarSlice";
 import productsSlice from "./slices/productsSlice";
+import modalSlice from "./slices/modalSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     cart: cartSlice,
     navbar: navbarSlice,
     products: productsSlice,
+    modal: modalSlice,
   },
 });
 

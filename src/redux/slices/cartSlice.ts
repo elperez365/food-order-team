@@ -30,6 +30,6 @@ export const cartSlice = createSlice({
 
 export const { addItem, removeItem } = cartSlice.actions;
 //? che fa questo
-export const cartCount = (state: RootState) => state.counter.value;
+export const cartLength = (state: RootState) => state.cart.value.length;
 
 export default cartSlice.reducer;

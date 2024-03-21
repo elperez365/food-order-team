@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <ToastContainer />
+      <ToastContainer position="bottom-center" />
       <App />
     </Provider>
   </React.StrictMode>,

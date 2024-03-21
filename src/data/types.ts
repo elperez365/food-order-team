@@ -2,10 +2,10 @@ export type order = {
   id: string;
   customer: customer;
   date: string;
-  products: product[];
+  products: productForOrder[];
 };
 
-export type product = {
+export type productForOrder = {
   id: number;
   name: string;
   price: number;
@@ -17,4 +17,18 @@ export type customer = {
   street: string;
   postalCode: string;
   city: string;
+};
+
+export type product = {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  discountPercentage: number;
+  rating: number;
+  stock: number;
+  brand: string;
+  category: string;
+  thumbnail: string;
+  images: string[];
 };

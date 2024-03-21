@@ -2,6 +2,9 @@ import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { JSX } from "react";
 
+import { useAppDispatch } from "../../redux/hooks";
+import { closeModal } from "../../redux/slices/modalSlice";
+
 export default function Modal({
   isOpen,
   children,
@@ -9,6 +12,7 @@ export default function Modal({
   isOpen: boolean;
   children: JSX.Element;
 }) {
+  const dispatch = useAppDispatch();
   const dialog = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -19,9 +23,15 @@ export default function Modal({
     }
   }, [isOpen]);
 
+  function handleClose() {
+    dispatch(closeModal());
+  }
+
   return createPortal(
     <>
-      <dialog ref={dialog}>{children}</dialog>
+      <dialog ref={dialog} onClose={handleClose}>
+        {children}
+      </dialog>
     </>,
     document.getElementById("modal") as Element,
   );

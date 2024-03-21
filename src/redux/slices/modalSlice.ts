@@ -11,9 +11,12 @@ const modalSlice = createSlice({
     setCurrentView: (state, action) => {
       state.value = action.payload;
     },
+    closeModal: (state) => {
+      state.value = "";
+    },
   },
 });
 
-export const { setCurrentView } = modalSlice.actions;
+export const { setCurrentView, closeModal } = modalSlice.actions;
 
 export default modalSlice.reducer;

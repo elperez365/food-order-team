@@ -1,13 +1,9 @@
-import { useAppDispatch } from "../../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { toggleNavbar } from "../../../redux/slices/navbarSlice";
 
-type ToggleIconProps = {
-  onToggle: () => void;
-  isOpen: boolean;
-};
-
-export default function ToggleIcon({ isOpen }: ToggleIconProps) {
+export default function ToggleIcon() {
   const dispatch = useAppDispatch();
+  const isOpen = useAppSelector((state) => state.navbar.value);
 
   return (
     <>

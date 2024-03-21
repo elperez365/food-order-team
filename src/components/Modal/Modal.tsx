@@ -1,29 +1,27 @@
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
+import { JSX } from "react";
 
-import { useAppSelector } from "../../redux/hooks";
-import { RootState } from "../../redux/store";
-
-export default function Modal() {
-  const currentView = useAppSelector(
-    (state: RootState) => state.modal.value.currentView,
-  );
-  const isOpen = useAppSelector((state: RootState) => state.modal.value.isOpen);
-  const dialog = useRef<HTMLDialogElement>(null!);
+export default function Modal({
+  isOpen,
+  children,
+}: {
+  isOpen: boolean;
+  children: JSX.Element;
+}) {
+  const dialog = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
     if (isOpen) {
-      dialog.current.showModal();
+      dialog.current?.showModal();
     } else {
-      dialog.current.close();
+      dialog.current?.close();
     }
   }, [isOpen]);
 
   return createPortal(
     <>
-      <dialog ref={dialog}>
-        <div>{currentView}</div>
-      </dialog>
+      <dialog ref={dialog}>{children}</dialog>
     </>,
     document.getElementById("modal") as Element,
   );

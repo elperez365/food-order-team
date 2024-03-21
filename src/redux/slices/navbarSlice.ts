@@ -16,7 +16,6 @@ export const navbarSlice = createSlice({
   initialState,
   reducers: {
     toggleNavbar: (state) => {
-      console.log(state.value);
       state.value = !state.value;
     },
   },

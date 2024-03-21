@@ -15,6 +15,7 @@ export default function useFetch(
 
   useEffect(() => {
     fetcher()
+      .then((res: any) => res.json())
       .then((data: any) => {
         dispatch(action(data));
         setLoading(false);

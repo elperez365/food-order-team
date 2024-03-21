@@ -10,6 +10,7 @@ type NavLinksProps = {
 
 export default function NavLinks({ className }: NavLinksProps) {
   const dispatch = useAppDispatch();
+  dispatch(setCurrentView(<p>ciao</p>));
   console.log("ul");
   return (
     <>
@@ -27,7 +28,6 @@ export default function NavLinks({ className }: NavLinksProps) {
         <NavLink
           onClick={() => {
             dispatch(removeItem());
-            dispatch(setCurrentView(<p>ciao</p>));
           }}
         >
           Cart

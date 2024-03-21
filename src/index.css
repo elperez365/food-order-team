@@ -15,3 +15,7 @@ p {
 .Toastify__toast-container {
   z-index: 9999999 !important;
 }
+
+body {
+  background-color: #d7c9aa;
+}

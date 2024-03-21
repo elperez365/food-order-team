@@ -1,7 +1,7 @@
 import NavLink from "./NavLink";
 
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { setCurrentView } from "../../../redux/slices/modalSlice";
+import { closeModal, setCurrentView } from "../../../redux/slices/modalSlice";
 import Modal from "../../Modal/Modal";
 import { RootState } from "../../../redux/store";
 
@@ -33,10 +33,30 @@ export default function NavLinks({ className }: NavLinksProps) {
           Cart
         </NavLink>
         <Modal isOpen={currentView === "history"}>
-          <p>HISTORY</p>
+          <>
+            <p>HISTORY</p>
+            <button
+              className="rounded-md border bg-red-400 px-8 py-4 text-white"
+              onClick={() => {
+                dispatch(closeModal());
+              }}
+            >
+              CLOSE
+            </button>
+          </>
         </Modal>
         <Modal isOpen={currentView === "cart"}>
-          <p>CART</p>
+          <>
+            <p>CART</p>
+            <button
+              className="rounded-md border bg-red-400 px-8 py-4 text-white"
+              onClick={() => {
+                dispatch(closeModal());
+              }}
+            >
+              CLOSE
+            </button>
+          </>
         </Modal>
       </ul>
     </>

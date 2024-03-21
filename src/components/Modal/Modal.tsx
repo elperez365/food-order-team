@@ -29,7 +29,11 @@ export default function Modal({
 
   return createPortal(
     <>
-      <dialog ref={dialog} onClose={handleClose}>
+      <dialog
+        ref={dialog}
+        onClose={handleClose}
+        className="p-4 backdrop:bg-black/50"
+      >
         {children}
       </dialog>
     </>,

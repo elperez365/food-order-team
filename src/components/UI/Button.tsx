@@ -5,14 +5,13 @@ type ButtonProps = {
   style: "classic" | "textOnly" | "classicFullSize";
 };
 
-let styleButton: string = "px-4 m-1 py-1 border-style: none text-gray-800";
-
 const Button = ({ type = "button", text, style, ...props }: ButtonProps) => {
-  if (style == "classic") {
+  let styleButton: string = "px-4 m-1 py-1 border-style: none text-gray-800";
+  if (style === "textOnly") {
+    styleButton = styleButton + " bg-transparent text-gray-800";
+  } else if (style === "classic") {
     styleButton = styleButton + " bg-[#0b7a75] rounded-md text-white";
-  } else if (style == "textOnly") {
-    styleButton = styleButton + " text-gray-800";
-  } else if (style == "classicFullSize") {
+  } else if (style === "classicFullSize") {
     styleButton =
       styleButton + " bg-[#0b7a75] rounded-md text-white size-full py-2";
   }

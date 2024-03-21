@@ -18,11 +18,13 @@ export default function Input({
     dispatch({ type: action, payload: e.target.value });
   };
 
-  const inputClass = state.error ? "error" : "not-error";
+  const inputClass = `mx-auto   ${state.error ? "error" : "not-error"}`;
 
   return (
-    <div className="input-container">
-      <label htmlFor={label}>{label}</label>
+    <div className="input-container my-1 w-full">
+      <label className="" htmlFor={label}>
+        {label}
+      </label>
       <input
         name={label}
         className={inputClass}

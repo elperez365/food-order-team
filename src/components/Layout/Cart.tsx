@@ -16,17 +16,17 @@ const Cart: React.FC = () => {
   const dispatch = useAppDispatch();
   console.log(currentView);
   return (
-    <>
+    <div className="m-auto flex w-80 flex-col py-4">
       {currentView === "cart" && (
         <>
-          <div>
+          <div className="flex flex-col justify-between gap-4">
             {cart.map((product) => (
               <CartProduct key={product.id} product={product} />
             ))}
           </div>
           <Button
             onClick={() => dispatch(setCurrentView("checkout"))}
-            style="textOnly"
+            style="classic"
             text="Checkout"
           ></Button>
         </>
@@ -40,7 +40,7 @@ const Cart: React.FC = () => {
         style="textOnly"
         text="Close"
       ></Button>
-    </>
+    </div>
   );
 };
 

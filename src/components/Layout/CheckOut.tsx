@@ -41,15 +41,19 @@ const CheckOut: React.FC = () => {
 
   return (
     <div>
-      <form onSubmit={(e) => onSubmit(e)} className="control" ref={formRef}>
+      <form
+        onSubmit={(e) => onSubmit(e)}
+        className="control flex flex-col items-center"
+        ref={formRef}
+      >
         <Input label={"Full Name"} action="FULL-NAME" required />
         <Input label={"E-Mail Address"} action="EMAIL" type="email" required />
         <Input label={"Street"} action="NO-CONTROLL" required />
-        <div className="control-row">
+        <div className="control-row mb-2 w-full">
           <Input label={"Postal Code"} action="POSTAL" required />
           <Input label={"City"} action="CITY" required />
         </div>
-        <Button text="invia" type="submit" style="classic" />
+        <Button text="invia" type="submit" style="classicFullSize" />
       </form>
     </div>
   );

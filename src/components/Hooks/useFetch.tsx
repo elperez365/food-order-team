@@ -27,3 +27,6 @@ export default function useFetch(
 
   return { data, loading, error };
 }
+
+// use case
+//const { data, loading, error }= useFetch(getAllProducts, "products", setProducts);

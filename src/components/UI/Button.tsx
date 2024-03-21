@@ -5,9 +5,9 @@ type ButtonProps = {
   style: "classic" | "textOnly" | "classicFullSize";
 };
 
-let styleButton: string = "px-4 py-1 border-style: none text-gray-800";
+let styleButton: string = "px-4 m-1 py-1 border-style: none text-gray-800";
 
-const Button = ({ type = "button", onClick, text, style }: ButtonProps) => {
+const Button = ({ type = "button", text, style, ...props }: ButtonProps) => {
   if (style == "classic") {
     styleButton = styleButton + " bg-[#0b7a75] rounded-md text-white";
   } else if (style == "textOnly") {
@@ -18,7 +18,7 @@ const Button = ({ type = "button", onClick, text, style }: ButtonProps) => {
   }
 
   return (
-    <button type={type} onClick={onClick} className={styleButton}>
+    <button type={type} className={styleButton} {...props}>
       {text}
     </button>
   );

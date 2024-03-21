@@ -1,6 +1,9 @@
+import { useAppDispatch } from "../redux/hooks";
+import { addItem } from "../redux/slices/cartSlice";
 import Button from "./UI/Button";
 
 type ProductCardProps = {
+  id: string;
   image?: string;
   title?: string;
   description?: string;
@@ -9,14 +12,22 @@ type ProductCardProps = {
 };
 
 const ProductCard = ({
+  id,
   image = "https://cdn.dummyjson.com/product-images/30/1.jpg",
   title = "Titolo",
   description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi erat, sollicitudin non interdum efficitur, malesuada sed diam.",
   category = "categoria",
   price = 27.23,
 }: ProductCardProps) => {
+  const newProduct = {
+    id,
+    title,
+    description,
+    category,
+    price,
+  };
+  const dispatch = useAppDispatch();
   return (
-
     <div className="m-auto flex w-5/6 flex-col rounded-xl border border-gray-100 bg-gray-50 p-4 shadow-xl md:h-[650px] md:w-[350px]">
       <div className="h-[350px] w-full rounded-md bg-gray-300 md:h-2/3">
         <img
@@ -35,7 +46,6 @@ const ProductCard = ({
           </span>
         </div>
         <span className="rounded-md bg-[#7b2d26] px-2 py-1 text-xs font-thin text-white">
-
           {category}
         </span>
       </div>
@@ -46,8 +56,11 @@ const ProductCard = ({
       </div>
 
       <div className=" flex w-full justify-between p-2">
-        <Button text="Add to cart" style="classicFullSize" />
-
+        <Button
+          onClick={() => dispatch(addItem(newProduct))}
+          text="Add to cart"
+          style="classicFullSize"
+        />
       </div>
     </div>
   );

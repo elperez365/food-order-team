@@ -1,10 +1,13 @@
 import React from "react";
 import Input from "../UI/Input/Input";
 import { createFieldsByInputs, searchErrors } from "../../formUtils";
+import Button from "../UI/Button";
+import { useAppSelector, useAppDispatch } from "../../redux/hooks";
+import { closeModal, setCurrentView } from "../../redux/slices/modalSlice";
 
 const CheckOut: React.FC = () => {
   const formRef = React.useRef<HTMLFormElement>(null);
-
+  const dispatch = useAppDispatch();
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -41,7 +44,12 @@ const CheckOut: React.FC = () => {
           <Input label={"Postal Code"} action="POSTAL" required />
           <Input label={"City"} action="CITY" required />
         </div>
-        <input type="submit" value={"invia"} />
+        <Button
+          onClick={() => dispatch(setCurrentView("success"))}
+          text="invia"
+          type="submit"
+          style="classic"
+        />
       </form>
     </div>
   );

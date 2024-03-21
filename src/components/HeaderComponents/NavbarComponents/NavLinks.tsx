@@ -1,5 +1,5 @@
 import NavLink from "./NavLink";
-
+import Cart from "../../Layout/Cart";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { closeModal, setCurrentView } from "../../../redux/slices/modalSlice";
 import Modal from "../../Modal/Modal";
@@ -33,30 +33,16 @@ export default function NavLinks({ className }: NavLinksProps) {
           Cart
         </NavLink>
         <Modal isOpen={currentView === "history"}>
-          <>
-            <p>HISTORY</p>
-            <button
-              className="rounded-md border bg-red-400 px-8 py-4 text-white"
-              onClick={() => {
-                dispatch(closeModal());
-              }}
-            >
-              CLOSE
-            </button>
-          </>
+          <p>History</p>
         </Modal>
-        <Modal isOpen={currentView === "cart"}>
-          <>
-            <p>CART</p>
-            <button
-              className="rounded-md border bg-red-400 px-8 py-4 text-white"
-              onClick={() => {
-                dispatch(closeModal());
-              }}
-            >
-              CLOSE
-            </button>
-          </>
+        <Modal
+          isOpen={
+            currentView === "cart" ||
+            currentView === "checkout" ||
+            currentView === "success"
+          }
+        >
+          <Cart />
         </Modal>
       </ul>
     </>

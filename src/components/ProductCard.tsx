@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { useAppDispatch } from "../redux/hooks";
 import { addItem } from "../redux/slices/cartSlice";
 import Button from "./UI/Button";
@@ -57,7 +58,10 @@ const ProductCard = ({
 
       <div className=" flex w-full justify-between p-2">
         <Button
-          onClick={() => dispatch(addItem(newProduct))}
+          onClick={() => {
+            dispatch(addItem(newProduct));
+            toast.success(title + " aggiunto al carrello");
+          }}
           text="Add to cart"
           style="classicFullSize"
         />

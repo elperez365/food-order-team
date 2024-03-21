@@ -2,8 +2,9 @@ import React from "react";
 import Input from "../UI/Input/Input";
 import { createFieldsByInputs, searchErrors } from "../../formUtils";
 import Button from "../UI/Button";
-import { useAppSelector, useAppDispatch } from "../../redux/hooks";
-import { closeModal, setCurrentView } from "../../redux/slices/modalSlice";
+import { useAppDispatch } from "../../redux/hooks";
+import { setCurrentView } from "../../redux/slices/modalSlice";
+import { toast } from "react-toastify";
 
 const CheckOut: React.FC = () => {
   const formRef = React.useRef<HTMLFormElement>(null);
@@ -19,17 +20,21 @@ const CheckOut: React.FC = () => {
 
     if (error) {
       errors.forEach((error) => {
-        console.log(`${error} non è valido`);
+        toast.error(`${error} non è valido`);
+        return;
       });
     }
 
     if (emptyValue) {
       empties.forEach((error) => {
-        console.log(`${error} è vuoto`);
+        toast.error(`${error} è vuoto`);
+        return;
       });
     }
     if (!error && !emptyValue) {
       isValid = true;
+      toast.success("Form inviato con successo");
+      dispatch(setCurrentView("success"));
     }
     return { isValid, fields };
   };
@@ -44,12 +49,7 @@ const CheckOut: React.FC = () => {
           <Input label={"Postal Code"} action="POSTAL" required />
           <Input label={"City"} action="CITY" required />
         </div>
-        <Button
-          onClick={() => dispatch(setCurrentView("success"))}
-          text="invia"
-          type="submit"
-          style="classic"
-        />
+        <Button text="invia" type="submit" style="classic" />
       </form>
     </div>
   );

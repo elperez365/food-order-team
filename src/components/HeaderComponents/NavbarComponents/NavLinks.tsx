@@ -2,6 +2,7 @@ import NavLink from "./NavLink";
 
 import { useAppDispatch } from "../../../redux/hooks";
 import { addItem, removeItem } from "../../../redux/slices/cartSlice";
+import { toggleModal, setCurrentView } from "../../../redux/slices/modalSlice";
 
 type NavLinksProps = {
   className?: string;
@@ -18,6 +19,7 @@ export default function NavLinks({ className }: NavLinksProps) {
         <NavLink
           onClick={() => {
             dispatch(addItem());
+            dispatch(toggleModal());
           }}
         >
           History
@@ -25,6 +27,7 @@ export default function NavLinks({ className }: NavLinksProps) {
         <NavLink
           onClick={() => {
             dispatch(removeItem());
+            dispatch(setCurrentView(<p>ciao</p>));
           }}
         >
           Cart

@@ -9,8 +9,8 @@ export default function History() {
 
   return (
     <>
-      <section className="bg-red-500">
-        <h1>History</h1>
+      <section className="min-w-[300px] p-4">
+        <h1 className="text-center text-3xl font-semibold">History</h1>
         <HistoryItems />
         <Button
           onClick={() => dispatch(closeModal())}

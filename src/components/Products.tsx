@@ -10,7 +10,6 @@ const Products = () => {
     "products",
     setProducts,
   );
-  console.log(data.value);
 
   if (loading) {
     return (
@@ -34,6 +33,7 @@ const Products = () => {
         {data.value.map((product: product) => (
           <li key={product.id} className="m-3 list-none">
             <ProductCard
+              id={product.id}
               image={product.images[0]}
               title={product.brand}
               description={product.description}

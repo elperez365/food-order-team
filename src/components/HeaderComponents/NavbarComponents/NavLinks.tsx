@@ -1,9 +1,12 @@
+import { RootState } from "../../../redux/store";
+
 import NavLink from "./NavLink";
 import Cart from "../../Layout/Cart";
+import Modal from "../../Modal/Modal";
+import History from "../../History/History";
+
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { setCurrentView } from "../../../redux/slices/modalSlice";
-import Modal from "../../Modal/Modal";
-import { RootState } from "../../../redux/store";
 
 type NavLinksProps = {
   className?: string;
@@ -33,7 +36,7 @@ export default function NavLinks({ className }: NavLinksProps) {
           Cart
         </NavLink>
         <Modal isOpen={currentView === "history"}>
-          <p>History</p>
+          <History />
         </Modal>
         <Modal
           isOpen={

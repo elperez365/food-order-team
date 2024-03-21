@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { createPortal } from "react-dom";
 import { JSX } from "react";
 
@@ -47,7 +47,7 @@ export default function Modal({
           ref={dialog}
           onClose={handleClose}
           open={isOpen}
-          className="p-4 backdrop:bg-black/50"
+          className="rounded-md p-4 backdrop:bg-black/50"
         >
           {children}
         </dialog>

@@ -33,3 +33,10 @@ export type product = {
   thumbnail: string;
   images: string[];
 };
+
+export type orderHistory = {
+  id: string;
+  customer: customer;
+  date: string;
+  products: product[];
+};

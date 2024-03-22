@@ -8,6 +8,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Credentials", true);
   next();
 });
 
@@ -61,6 +62,7 @@ app.get("/orders/:id", async (req, res) => {
 app.post("/orders", express.json(), async (req, res) => {
   try {
     const newOrder = req.body;
+    console.log(req.body);
     if (newOrder.products.length === 0) {
       res.status(400).send("Products are required");
       return;
@@ -112,6 +114,10 @@ app.post("/orders", express.json(), async (req, res) => {
 });
 
 app.use((req, res) => {
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200);
+  }
+
   res.status(404).send("Not found");
 });
 

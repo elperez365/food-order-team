@@ -32,11 +32,12 @@ export default function NavLinks({ className }: NavLinksProps) {
           onClick={() => {
             dispatch(setCurrentView("cart"));
           }}
+          numberOf={useAppSelector((state) => state.cart.value.length)}
         >
           Cart
         </NavLink>
         <Modal isOpen={currentView === "history"}>
-          <History />
+          <History key={currentView} />
         </Modal>
         <Modal
           isOpen={

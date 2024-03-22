@@ -1,10 +1,17 @@
 import HistoryItem from "./HistoryItem";
 
-export default function HistoryItems() {
+import { order } from "../../data/types";
+
+type HistoryItemsProps = {
+  orders: order[];
+};
+
+export default function HistoryItems({ orders }: HistoryItemsProps) {
   return (
     <>
-      <p>HistoryItem</p>
-      {/* <HistoryItem /> */}
+      {orders.map((order) => (
+        <HistoryItem key={order.id} {...order} />
+      ))}
     </>
   );
 }

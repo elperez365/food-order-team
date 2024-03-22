@@ -1,19 +1,20 @@
-import { useAppSelector } from "../../../redux/hooks";
-import { RootState } from "../../../redux/store";
-
 interface NavLinkProps extends React.LiHTMLAttributes<HTMLLIElement> {
   children: React.ReactNode;
+  numberOf?: number;
 }
 
-export default function NavLink({ children, ...props }: NavLinkProps) {
-  const cart = useAppSelector((state: RootState) => state.cart);
+export default function NavLink({
+  numberOf = 0,
+  children,
+  ...props
+}: NavLinkProps) {
   return (
     <>
       <li
         className="cursor-pointer p-4 text-3xl text-[clamp(1rem,1vw+1rem,2rem)] font-semibold uppercase text-white  drop-shadow-md"
         {...props}
       >
-        {children} - ({cart.value.length})
+        {children} {numberOf > 0 ? `- (${numberOf})` : ""}
       </li>
     </>
   );

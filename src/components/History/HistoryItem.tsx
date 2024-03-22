@@ -3,6 +3,14 @@ import { order } from "../../data/types";
 import HistoryItemDetails from "./HistoryItemDetails";
 
 export default function HistoryItem({ id, customer, date, products }: order) {
+  function getTotalPrice() {
+    let total = 0;
+    products.forEach((product) => {
+      total += product.price * product.quantity;
+    });
+    return total;
+  }
+
   return (
     <>
       <article className="relative">
@@ -15,7 +23,7 @@ export default function HistoryItem({ id, customer, date, products }: order) {
               </div>
               <div className="flex flex-col">
                 <label>Total:</label>
-                <p className="font-bold">$TOTALE</p>
+                <p className="font-bold">${getTotalPrice()}</p>
               </div>
               <div className="flex flex-col">
                 <label>Send to:</label>

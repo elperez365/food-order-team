@@ -8,6 +8,9 @@ import History from "../../History/History";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { setCurrentView } from "../../../redux/slices/modalSlice";
 
+import { FaShoppingCart } from "react-icons/fa";
+import { FaClockRotateLeft } from "react-icons/fa6";
+
 type NavLinksProps = {
   className?: string;
 };
@@ -26,7 +29,7 @@ export default function NavLinks({ className }: NavLinksProps) {
             dispatch(setCurrentView("history"));
           }}
         >
-          History
+          <FaClockRotateLeft />
         </NavLink>
         <NavLink
           onClick={() => {
@@ -34,7 +37,7 @@ export default function NavLinks({ className }: NavLinksProps) {
           }}
           numberOf={useAppSelector((state) => state.cart.value.length)}
         >
-          Cart
+          <FaShoppingCart />
         </NavLink>
         <Modal isOpen={currentView === "history"}>
           <History key={currentView} />

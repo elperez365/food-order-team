@@ -37,7 +37,7 @@ export default function NavLinks({ className }: NavLinksProps) {
           Cart
         </NavLink>
         <Modal isOpen={currentView === "history"}>
-          <History />
+          <History key={currentView} />
         </Modal>
         <Modal
           isOpen={

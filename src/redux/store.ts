@@ -5,6 +5,7 @@ import navbarSlice from "./slices/navbarSlice";
 import productsSlice from "./slices/productsSlice";
 import modalSlice from "./slices/modalSlice";
 import ordersSlice from "./slices/ordersSlice";
+import singleProductSlice from "./slices/singleProductSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     products: productsSlice,
     modal: modalSlice,
     orders: ordersSlice,
+    singleProduct: singleProductSlice,
   },
 });
 

@@ -5,7 +5,9 @@ export const getAllProducts = (): Promise<any> => {
 };
 
 export const getProductById = (id: string): Promise<any> => {
-  return fetch(`http://localhost:3000/products/${id}`);
+  return fetch(`http://localhost:3000/products/${id}`).then((res) =>
+    res.json(),
+  );
 };
 
 export const getAllOrders = (): Promise<any> => {

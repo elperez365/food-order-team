@@ -1,8 +1,10 @@
 type ButtonProps = {
   type?: "button" | "submit" | "reset";
   onClick?: () => void;
-  text: string;
+
+  text: string | JSX.Element;
   style: "classic" | "textOnly" | "classicFullSize" | "classicBounce";
+
 };
 
 const Button = ({ type = "button", text, style, ...props }: ButtonProps) => {

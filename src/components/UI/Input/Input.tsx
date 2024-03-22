@@ -18,7 +18,7 @@ export default function Input({
     dispatch({ type: action, payload: e.target.value });
   };
 
-  const inputClass = `mx-auto   ${state.error ? "error" : "not-error"}`;
+  const inputClass = `mx-auto ${state.error ? "error" : "not-error"}`;
 
   return (
     <div className="input-container my-1 w-full">

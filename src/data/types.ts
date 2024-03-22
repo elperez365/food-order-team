@@ -40,3 +40,5 @@ export type orderHistory = {
   date: string;
   products: product[];
 };
+
+export type categories = string[];

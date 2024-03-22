@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 import { inputReducer } from "./inputReducer";
-import "./input.css";
+import "./input.scss";
 
 class initialState {
   value = "";

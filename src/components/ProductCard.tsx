@@ -2,6 +2,7 @@ import { toast } from "react-toastify";
 import { useAppDispatch } from "../redux/hooks";
 import { addItem } from "../redux/slices/cartSlice";
 import Button from "./UI/Button";
+import { useNavigate } from "react-router-dom";
 
 type ProductCardProps = {
   id: string;
@@ -28,13 +29,17 @@ const ProductCard = ({
     price,
   };
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   return (
     <div className="m-auto flex w-5/6 flex-col rounded-xl border border-gray-100 bg-gray-50 p-4 shadow-xl md:h-[650px] md:w-[350px]">
       <div className="h-[350px] w-full rounded-md bg-gray-300 md:h-2/3">
         <img
-          className="h-full w-full rounded-md object-contain"
+          className="h-full w-full cursor-pointer rounded-md object-contain hover:opacity-50"
           src={image}
           alt={title}
+          onClick={() => {
+            navigate(`/product/${id}`);
+          }}
         />
       </div>
       <div className="p-2">

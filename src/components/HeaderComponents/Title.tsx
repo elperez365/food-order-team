@@ -2,7 +2,7 @@ import icon from "../../assets/icon.png";
 export default function Title() {
   return (
     <>
-      <section className="flex items-center justify-start p-4">
+      <section className="flex items-center justify-start px-4 py-2">
         <img
           src={icon}
           alt="logo"

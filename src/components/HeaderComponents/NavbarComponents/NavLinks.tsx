@@ -19,7 +19,7 @@ export default function NavLinks({ className }: NavLinksProps) {
   return (
     <>
       <ul
-        className={`${className ? className + " " : ""} items-center justify-center p-4`}
+        className={`${className ? className + " " : ""} items-center justify-center px-4 py-2`}
       >
         <NavLink
           onClick={() => {

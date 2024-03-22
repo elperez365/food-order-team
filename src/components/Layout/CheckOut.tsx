@@ -74,7 +74,7 @@ const CheckOut: React.FC = () => {
     <div>
       <form
         onSubmit={(e) => onSubmit(e)}
-        className="control flex flex-col items-center"
+        className="control flex flex-col items-center text-center"
         ref={formRef}
       >
         <Input label={"Full Name"} action="FULL-NAME" required />

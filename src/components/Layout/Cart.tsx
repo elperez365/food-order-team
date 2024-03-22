@@ -14,9 +14,9 @@ const Cart: React.FC = () => {
   const cart = useAppSelector((state) => state.cart.value);
   const currentView = useAppSelector((state) => state.modal.value);
   const dispatch = useAppDispatch();
-  console.log(currentView);
+  //console.log(currentView);
   return (
-    <div className="m-auto flex w-80 flex-col py-4">
+    <div className="m-auto flex w-full flex-col py-4">
       {currentView === "cart" && (
         <>
           <div className="flex flex-col justify-between gap-4">
@@ -24,6 +24,9 @@ const Cart: React.FC = () => {
               <CartProduct key={product.id} product={product} />
             ))}
           </div>
+          <p className="my-4">
+            Total: € {cart.reduce((a, b) => a + b.price * b.quantity, 0)}
+          </p>
           <Button
             onClick={() => dispatch(setCurrentView("checkout"))}
             style="classic"

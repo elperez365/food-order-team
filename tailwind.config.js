@@ -10,6 +10,12 @@ export default {
         faluRed: "#7B2D26",
         antiFlash: "#FOF3F5",
       },
+      backgroundImage: {
+        wallpaper: "url('./assets/wallpaper.png')",
+      },
+      dropShadow: {
+        white: "0 0 2px rgba(251, 251, 251, 0.952)",
+      },
     },
   },
   plugins: [],

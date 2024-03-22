@@ -16,6 +16,10 @@ p {
   z-index: 9999999 !important;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #d7c9aa;
 }

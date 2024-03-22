@@ -29,7 +29,10 @@ const Products = () => {
     );
   } else {
     return (
-      <div className="flex flex-col items-center justify-center gap-4 md:mx-auto md:flex-row md:flex-wrap">
+      <div
+        id="products-start"
+        className="flex flex-col items-center justify-center gap-4 md:mx-auto md:flex-row md:flex-wrap"
+      >
         {data.value.map((product: product) => (
           <li key={product.id} className="m-3 list-none">
             <ProductCard

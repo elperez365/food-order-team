@@ -59,11 +59,19 @@ export const cartSlice = createSlice({
         (product) => product.id !== action.payload,
       );
     },
+    clearCart: (state) => {
+      state.value = [];
+    },
   },
 });
 
-export const { addItem, addQuantityByOne, removeQuantityByOne, removeItem } =
-  cartSlice.actions;
+export const {
+  addItem,
+  addQuantityByOne,
+  removeQuantityByOne,
+  removeItem,
+  clearCart,
+} = cartSlice.actions;
 //? che fa questo
 export const cartLength = (state: RootState) => state.cart.value.length;
 

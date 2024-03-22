@@ -7,7 +7,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav>
+      <nav className="flex">
         <NavLinks className="hidden gap-4 drop-shadow-md md:flex" />
         <ToggleIcon />
       </nav>

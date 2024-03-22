@@ -11,6 +11,7 @@ import { setCurrentView } from "../../redux/slices/modalSlice";
 import { postOrder } from "../../data/endpoints";
 
 import { toast } from "react-toastify";
+import { clearCart } from "../../redux/slices/cartSlice";
 
 const CheckOut: React.FC = () => {
   const formRef = React.useRef<HTMLFormElement>(null);
@@ -62,6 +63,7 @@ const CheckOut: React.FC = () => {
         if (response.ok) {
           toast.success("Form inviato con successo");
           dispatch(setCurrentView("success"));
+          dispatch(clearCart());
         } else {
           toast.error("Errore nell'invio del form");
         }

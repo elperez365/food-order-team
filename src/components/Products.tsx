@@ -20,10 +20,12 @@ const Products = () => {
     return <Error />;
   } else {
     return (
+
       <>
         <Categories />
         <ProductsList data={data} />
       </>
+
     );
   }
 };

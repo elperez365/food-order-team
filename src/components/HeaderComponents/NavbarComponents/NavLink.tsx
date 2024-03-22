@@ -11,10 +11,10 @@ export default function NavLink({
   return (
     <>
       <li
-        className="cursor-pointer p-4 text-3xl text-[clamp(1rem,1vw+1rem,2rem)] font-semibold uppercase text-white  drop-shadow-md"
+        className="flex cursor-pointer items-center justify-center gap-2 text-3xl text-[clamp(1rem,1vw+1rem,1.5rem)] font-semibold uppercase text-white  drop-shadow-md"
         {...props}
       >
-        {children} {numberOf > 0 ? `- (${numberOf})` : ""}
+        {children} {numberOf > 0 ? `(${numberOf})` : ""}
       </li>
     </>
   );

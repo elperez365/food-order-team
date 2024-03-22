@@ -18,11 +18,13 @@ const Cart: React.FC = () => {
   const currentView = useAppSelector((state) => state.modal.value);
   const dispatch = useAppDispatch();
 
+
   return (
     <div className="m-auto flex w-80 flex-col py-4">
       {cart.length === 0 && <CartEmpty />}
 
       {currentView === "cart" && <CartProducts />}
+
 
       {currentView === "checkout" && <CheckOut />}
 

@@ -16,6 +16,12 @@ export default {
       dropShadow: {
         white: "0 0 2px rgba(251, 251, 251, 0.952)",
       },
+      keyframes: {
+        slideUp: {
+          "0%": { transform: "translateY(100%)", opacity: "0" },
+          "100%": { transform: "translateY(-30%)", opacity: "1" },
+        },
+      },
     },
   },
   plugins: [],

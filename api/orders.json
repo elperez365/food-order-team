@@ -27,7 +27,7 @@
     },
     "date": "2015-01-01",
     "products": [
-      { "id": 15, "price": 30, "quantity": 2 },
+      { "id": 15, "price": 35, "quantity": 2 },
       { "id": 29, "price": 60, "quantity": 1 },
       { "id": 5, "price": 499, "quantity": 1 },
       { "id": 22, "price": 14, "quantity": 3 }

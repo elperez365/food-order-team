@@ -17,9 +17,6 @@ const CheckOut: React.FC = () => {
 
   const dispatch = useAppDispatch();
   const cart = useAppSelector((state) => state.cart.value);
-  //console.log(cart);
-
-  //const { response, loading, error, startPosting } = useFetchPost();
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

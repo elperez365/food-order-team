@@ -7,7 +7,6 @@ import { getAllOrders } from "../../data/endpoints";
 import Button from "../UI/Button";
 import HistoryItems from "./HistoryItems";
 
-import { orderHistory } from "../../data/types";
 import { setOrders } from "../../redux/slices/ordersSlice";
 
 export default function History() {
@@ -17,7 +16,7 @@ export default function History() {
   return (
     <>
       <section className="min-w-[300px] p-4">
-        <h1 className="text-center text-3xl font-semibold">History</h1>
+        <h1 className="mb-4 text-center text-3xl font-semibold">History</h1>
         <HistoryItems orders={orders.value} />
         <Button
           onClick={() => dispatch(closeModal())}

@@ -18,10 +18,7 @@ export default function History() {
     <>
       <section className="min-w-[300px] p-4">
         <h1 className="text-center text-3xl font-semibold">History</h1>
-        {orders.value.map((order: orderHistory) => (
-          <p>{order.id}</p>
-        ))}
-        <HistoryItems />
+        <HistoryItems orders={orders.value} />
         <Button
           onClick={() => dispatch(closeModal())}
           style="textOnly"

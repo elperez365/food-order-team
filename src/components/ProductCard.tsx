@@ -29,8 +29,8 @@ const ProductCard = ({
   };
   const dispatch = useAppDispatch();
   return (
-    <div className="m-auto flex w-5/6 flex-col rounded-xl border border-gray-100 bg-gray-50 p-4 shadow-xl md:h-[650px] md:w-[350px]">
-      <div className="h-[350px] w-full rounded-md bg-gray-300 md:h-2/3">
+    <div className="m-auto flex w-[280px] flex-col rounded-xl border border-gray-100 bg-gray-50 p-4 shadow-xl md:h-[550px] md:w-[350px]">
+      <div className="h-[200px] w-full rounded-md bg-gray-300 md:h-[300px]">
         <img
           className="h-full w-full rounded-md object-contain"
           src={image}
@@ -51,9 +51,7 @@ const ProductCard = ({
         </span>
       </div>
       <div className="p-2 md:h-1/6">
-        <p className="... overflow-hidden text-ellipsis text-base text-gray-600">
-          {description}
-        </p>
+        <p className="truncate text-base text-gray-600">{description}</p>
       </div>
 
       <div className=" flex w-full justify-between p-2">

@@ -1,10 +1,13 @@
 import React from "react";
+
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
-import { closeModal, setCurrentView } from "../../redux/slices/modalSlice";
-import CartProduct from "./CartProduct";
+import { closeModal } from "../../redux/slices/modalSlice";
+
 import Button from "../UI/Button";
 import CheckOut from "./CheckOut";
 import StatusOrder from "./StatusOrder";
+import CartProducts from "./CartProducts";
+import CartEmpty from "./CartEmpty";
 
 //lista oggetti carrello
 //form
@@ -14,23 +17,13 @@ const Cart: React.FC = () => {
   const cart = useAppSelector((state) => state.cart.value);
   const currentView = useAppSelector((state) => state.modal.value);
   const dispatch = useAppDispatch();
-  console.log(currentView);
+
   return (
     <div className="m-auto flex w-80 flex-col py-4">
-      {currentView === "cart" && (
-        <>
-          <div className="flex flex-col justify-between gap-4">
-            {cart.map((product) => (
-              <CartProduct key={product.id} product={product} />
-            ))}
-          </div>
-          <Button
-            onClick={() => dispatch(setCurrentView("checkout"))}
-            style="classic"
-            text="Checkout"
-          ></Button>
-        </>
-      )}
+      {cart.length === 0 && <CartEmpty />}
+
+      {currentView === "cart" && <CartProducts />}
+
       {currentView === "checkout" && <CheckOut />}
 
       {currentView === "success" && <StatusOrder />}

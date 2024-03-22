@@ -16,6 +16,9 @@ export default function CartProducts() {
           <CartProduct key={product.id} product={product} />
         ))}
       </div>
+      <p className="my-4">
+        Total: € {cart.reduce((a, b) => a + b.price * b.quantity, 0)}
+      </p>
       <Button
         onClick={() => dispatch(setCurrentView("checkout"))}
         style="classic"

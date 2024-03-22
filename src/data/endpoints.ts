@@ -19,9 +19,8 @@ export const getOrderById = (id: string): Promise<any> => {
 export const postOrder = (order: order): Promise<any> => {
   return fetch("http://localhost:3000/orders", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    mode: "cors",
+    headers: { "Content-type": "application/json" },
     body: JSON.stringify(order),
   });
 };

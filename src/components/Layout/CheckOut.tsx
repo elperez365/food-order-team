@@ -1,14 +1,24 @@
 import React from "react";
-import Input from "../UI/Input/Input";
+
 import { createFieldsByInputs, searchErrors } from "../../formUtils";
+
+import Input from "../UI/Input/Input";
 import Button from "../UI/Button";
+
 import { useAppDispatch } from "../../redux/hooks";
 import { setCurrentView } from "../../redux/slices/modalSlice";
+
+import useFetchPost from "../Hooks/useFetchPost";
+
 import { toast } from "react-toastify";
 
 const CheckOut: React.FC = () => {
   const formRef = React.useRef<HTMLFormElement>(null);
   const dispatch = useAppDispatch();
+  const { setToPost } = useFetchPost(() => {
+    console.log("post fetch function");
+  });
+
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -35,6 +45,7 @@ const CheckOut: React.FC = () => {
       isValid = true;
       toast.success("Form inviato con successo");
       dispatch(setCurrentView("success"));
+      setToPost(true);
     }
     return { isValid, fields };
   };

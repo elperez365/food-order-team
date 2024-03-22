@@ -59,11 +59,13 @@ const CheckOut: React.FC = () => {
       };
 
       postOrder(orderObj).then((response) => {
-        console.log(response);
+        if (response.ok) {
+          toast.success("Form inviato con successo");
+          dispatch(setCurrentView("success"));
+        } else {
+          toast.error("Errore nell'invio del form");
+        }
       });
-
-      toast.success("Form inviato con successo");
-      dispatch(setCurrentView("success"));
     }
     return { isValid, fields };
   };

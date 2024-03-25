@@ -21,7 +21,7 @@ const Chip: React.FC<ChipProps> = ({
     <span
       className={
         classChip +
-        " flex cursor-pointer items-center justify-center rounded-full px-3 py-1 text-sm"
+        " mx-1 flex cursor-pointer items-center justify-center text-nowrap rounded-full px-3 py-2 text-sm"
       }
       onClick={onClick}
     >

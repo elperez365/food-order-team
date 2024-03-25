@@ -47,7 +47,7 @@ export default function Modal({
           ref={dialog}
           onClose={handleClose}
           open={isOpen}
-          className="w-11/12 rounded-md p-4 backdrop:bg-black/50 md:w-2/5"
+          className="w-11/12 rounded-md p-4 backdrop:bg-black/50 md:w-2/5 "
         >
           {children}
         </dialog>

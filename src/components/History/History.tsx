@@ -17,7 +17,9 @@ export default function History() {
     <>
       <section className="min-w-[300px] p-4">
         <h1 className="mb-4 text-center text-3xl font-semibold">History</h1>
-        <HistoryItems orders={orders.value} />
+        <div className="max-h-[500px] overflow-y-auto">
+          <HistoryItems orders={orders.value} />
+        </div>
         <Button
           onClick={() => dispatch(closeModal())}
           style="textOnly"

@@ -113,6 +113,29 @@ app.post("/orders", express.json(), async (req, res) => {
   }
 });
 
+app.post("/login", express.json(), async (req, res) => {
+  const users = await fs.readFile("./api/users.json", "utf8");
+  try {
+    const { email, password } = req.body;
+    if (email === "" || password === "") {
+      res.status(400).send("Email and password are required");
+      return;
+    }
+    const user = JSON.parse(users).find((u) => u.email === email);
+    if (!user) {
+      res.status(404).send("User not found");
+      return;
+    }
+    if (user.password !== password) {
+      res.status(401).send("Invalid password");
+      return;
+    }
+    res.json(user);
+  } catch (err) {
+    res.status.send(err);
+  }
+});
+
 app.use((req, res) => {
   if (req.method === "OPTIONS") {
     return res.sendStatus(200);

@@ -26,3 +26,11 @@ export const postOrder = (order: order): Promise<any> => {
     body: JSON.stringify(order),
   });
 };
+
+export const login = (email: string, password: string): Promise<any> => {
+  return fetch("http://localhost:3000/login", {
+    method: "POST",
+    headers: { "Content-type": "application/json" },
+    body: JSON.stringify({ email, password }),
+  });
+};

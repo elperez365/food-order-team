@@ -17,7 +17,7 @@ const Categories: React.FC = () => {
   );
 
   return (
-    <div className="flex w-full justify-center gap-2 overflow-x-scroll py-2">
+    <div className="flex w-full justify-center gap-2 overflow-x-auto py-2">
       <Chip
         label="All"
         selectedValue={selectedCategory}

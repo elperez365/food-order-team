@@ -1,14 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import { login } from "../data/endpoints";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch } from "../redux/hooks";
 import { setLogin, setUser } from "../redux/slices/loginSlice";
+import { setCurrentView } from "../redux/slices/modalSlice";
+import Button from "./UI/Button";
 
 export default function LoginForm() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(true);
+  const [error, setError] = useState(false);
 
   const dispatch = useAppDispatch();
 
@@ -21,38 +23,61 @@ export default function LoginForm() {
       dispatch(setLogin(true));
       navigate("/home");
     } catch (err) {
-      alert(err);
+      //alert(err);
+      console.log(err);
+
       setError(true);
     }
   };
 
+  useEffect(() => {
+    return () => {
+      setEmail("");
+      setPassword("");
+      setError(false);
+    };
+  }, []);
+
   return (
-    <div className="flex h-screen items-center justify-center">
+    <div className="flex items-center justify-center">
       <form
-        className="flex w-3/4 flex-col items-center justify-center md:w-1/4"
+        className="flex w-3/4 flex-col items-center justify-center text-center"
         onSubmit={handleSubmit}
       >
-        <h1 className="mb-6 text-3xl font-bold">Login</h1>
+        <h2 className="mb-6 text-3xl font-bold">Login</h2>
+        <label>Email</label>
         <input
-          type="email"
+          className="mb-4 w-full rounded border p-2"
           placeholder="Email"
-          className="input"
+          type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setEmail(e.target.value)
+          }
+          required
         />
+        <label>Password</label>
         <input
-          type="password"
+          className="mb-4 w-full rounded border p-2"
           placeholder="Password"
-          className="input"
+          type="password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setPassword(e.target.value)
+          }
+          required
         />
         {error && (
           <p className="text-sm text-red-500">Invalid email or password</p>
         )}
-        <button className="btn" type="submit">
-          Login
-        </button>
+        <div className="flex">
+          <Button
+            text="Cancel"
+            style="textOnly"
+            onClick={() => dispatch(setCurrentView(""))}
+          />
+          <Button text="Login" style="classic" type="submit" />
+        </div>
       </form>
     </div>
   );

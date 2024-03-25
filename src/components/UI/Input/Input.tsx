@@ -9,7 +9,7 @@ class initialState {
 
 export default function Input({
   action = "NO-CONTROLL",
-  label = "",
+  label = "Input",
   ...props
 }) {
   const [state, dispatch] = useReducer(inputReducer, new initialState());
@@ -26,6 +26,7 @@ export default function Input({
         {label}
       </label>
       <input
+        aria-label="Input"
         name={label}
         className={inputClass}
         {...props}

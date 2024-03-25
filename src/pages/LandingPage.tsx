@@ -14,7 +14,7 @@ const LandingPage = () => {
   return (
     <>
       <div
-        className="relative z-0 flex h-screen w-screen flex-col items-center justify-center bg-wallpaper bg-cover bg-center "
+        className="bg-wallpaper relative z-0 flex h-screen w-screen flex-col items-center justify-center bg-cover bg-center "
         style={{
           backgroundImage: `linear-gradient(rgba(215, 201, 170, 0.8), rgba(215, 201, 170, 0.8)), url(${wallpaper})`,
         }}
@@ -24,7 +24,7 @@ const LandingPage = () => {
           Renew Reuse Save
         </p>
         <Modal isOpen={modalValue === "login"}>
-          <LoginForm />
+          <LoginForm key={modalValue} />
         </Modal>
 
         <Button

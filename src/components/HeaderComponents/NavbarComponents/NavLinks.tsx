@@ -10,6 +10,7 @@ import { setCurrentView } from "../../../redux/slices/modalSlice";
 
 import { FaShoppingCart } from "react-icons/fa";
 import { FaClockRotateLeft } from "react-icons/fa6";
+import LoginForm from "../../LoginForm";
 
 type NavLinksProps = {
   className?: string;
@@ -17,6 +18,7 @@ type NavLinksProps = {
 
 export default function NavLinks({ className }: NavLinksProps) {
   const currentView = useAppSelector((state: RootState) => state.modal.value);
+  const isUserLogged = useAppSelector((state) => state.login.value);
   const dispatch = useAppDispatch();
 
   return (
@@ -26,10 +28,11 @@ export default function NavLinks({ className }: NavLinksProps) {
       >
         <NavLink
           onClick={() => {
-            dispatch(setCurrentView("history"));
+            if (isUserLogged) dispatch(setCurrentView("history"));
+            else dispatch(setCurrentView("login"));
           }}
         >
-          <FaClockRotateLeft />
+          {isUserLogged ? <FaClockRotateLeft /> : <p>Login</p>}
         </NavLink>
         <NavLink
           onClick={() => {
@@ -39,6 +42,9 @@ export default function NavLinks({ className }: NavLinksProps) {
         >
           <FaShoppingCart />
         </NavLink>
+        <Modal isOpen={currentView === "login"}>
+          <LoginForm key={currentView} />
+        </Modal>
         <Modal isOpen={currentView === "history"}>
           <History key={currentView} />
         </Modal>

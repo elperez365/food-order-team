@@ -10,7 +10,12 @@ import "react-toastify/dist/ReactToastify.css";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <ToastContainer position="bottom-center" closeOnClick />
+      <ToastContainer
+        autoClose={1000}
+        limit={3}
+        position="bottom-center"
+        closeOnClick
+      />
       <App />
     </Provider>
   </React.StrictMode>,

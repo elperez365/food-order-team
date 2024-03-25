@@ -11,7 +11,7 @@ export default function CartProducts() {
 
   return (
     <>
-      <div className="flex flex-col justify-between gap-4">
+      <div className="flex max-h-[500px] flex-col justify-between gap-4 overflow-auto">
         {cart.map((product) => (
           <CartProduct key={product.id} product={product} />
         ))}

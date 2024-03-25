@@ -21,6 +21,7 @@ export default function LoginForm() {
       const data = await response.json();
       dispatch(setUser(data));
       dispatch(setLogin(true));
+      dispatch(setCurrentView(""));
       navigate("/home");
     } catch (err) {
       //alert(err);

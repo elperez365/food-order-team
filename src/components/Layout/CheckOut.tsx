@@ -5,10 +5,13 @@ import { createFieldsByInputs, searchErrors } from "../../formUtils";
 import Input from "../UI/Input/Input";
 import Button from "../UI/Button";
 
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import {
+  useAppDispatch,
+  // useAppSelector
+} from "../../redux/hooks";
 import { setCurrentView } from "../../redux/slices/modalSlice";
 
-import { postOrder } from "../../data/endpoints";
+// import { postOrder } from "../../data/endpoints";
 
 import { toast } from "react-toastify";
 import { clearCart } from "../../redux/slices/cartSlice";
@@ -17,7 +20,7 @@ const CheckOut: React.FC = () => {
   const formRef = React.useRef<HTMLFormElement>(null);
 
   const dispatch = useAppDispatch();
-  const cart = useAppSelector((state) => state.cart.value);
+  // const cart = useAppSelector((state) => state.cart.value);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -46,18 +49,18 @@ const CheckOut: React.FC = () => {
     if (!error && !emptyValue) {
       isValid = true;
 
-      const orderObj = {
-        id: Math.random().toString(),
-        customer: {
-          name: fields[0].value,
-          email: fields[1].value,
-          street: fields[2].value,
-          postalCode: fields[3].value,
-          city: fields[4].value,
-        },
-        date: "2022-01-01",
-        products: cart,
-      };
+      // const orderObj = {
+      //   id: Math.random().toString(),
+      //   customer: {
+      //     name: fields[0].value,
+      //     email: fields[1].value,
+      //     street: fields[2].value,
+      //     postalCode: fields[3].value,
+      //     city: fields[4].value,
+      //   },
+      //   date: "2022-01-01",
+      //   products: cart,
+      // };
 
       // postOrder(orderObj).then((response) => {
       //   if (response.ok) {

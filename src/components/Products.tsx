@@ -1,9 +1,9 @@
-import useFetch from "./Hooks/useFetch";
-import { getAllProducts } from "../data/endpoints";
+// import useFetch from "./Hooks/useFetch";
+// import { getAllProducts } from "../data/endpoints";
 import { setProducts } from "../redux/slices/productsSlice";
 
-import Error from "./UI/Loading/Error";
-import Loading from "./UI/Loading/Loading";
+// import Error from "./UI/Loading/Error";
+// import Loading from "./UI/Loading/Loading";
 import Categories from "./Categories";
 import ProductsList from "./ProductsList";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";

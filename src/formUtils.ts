@@ -1,4 +1,4 @@
-export function createFieldsByInputs(inputs) {
+export function createFieldsByInputs(inputs: any[]) {
   const fields = inputs.map((input) => {
     const label = input.name;
     const value = input.value;
@@ -8,11 +8,11 @@ export function createFieldsByInputs(inputs) {
   return fields;
 }
 
-export function searchErrors(fields) {
+export function searchErrors(fields: any[]) {
   let error = false;
-  let errors = [];
+  const errors: any[] = [];
   let emptyValue = false;
-  let empties = [];
+  const empties: any[] = [];
   fields.forEach((field) => {
     if (field.error === "error") {
       errors.push(field.label);

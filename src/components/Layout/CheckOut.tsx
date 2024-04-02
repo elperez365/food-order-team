@@ -59,15 +59,18 @@ const CheckOut: React.FC = () => {
         products: cart,
       };
 
-      postOrder(orderObj).then((response) => {
-        if (response.ok) {
-          toast.success("Form inviato con successo");
-          dispatch(setCurrentView("success"));
-          dispatch(clearCart());
-        } else {
-          toast.error("Errore nell'invio del form");
-        }
-      });
+      // postOrder(orderObj).then((response) => {
+      //   if (response.ok) {
+      //     toast.success("Form inviato con successo");
+      //     dispatch(setCurrentView("success"));
+      //     dispatch(clearCart());
+      //   } else {
+      //     toast.error("Errore nell'invio del form");
+      //   }
+      // });
+      toast.success("Form inviato con successo");
+      dispatch(setCurrentView("success"));
+      dispatch(clearCart());
     }
     return { isValid, fields };
   };

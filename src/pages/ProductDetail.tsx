@@ -2,11 +2,12 @@ import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { setProduct } from "../redux/slices/singleProductSlice";
-import { getProductById } from "../data/endpoints";
+// import { getProductById } from "../data/endpoints";
 import Button from "../components/UI/Button";
 import { FaBackward } from "react-icons/fa";
 import { addItem } from "../redux/slices/cartSlice";
 import { toast } from "react-toastify";
+import { DUMMYPRODUCTS } from "../data/DUMMY";
 
 const ProductDetail: React.FC = () => {
   const params = useParams();
@@ -15,11 +16,18 @@ const ProductDetail: React.FC = () => {
   const [imgSelected, setImgSelected] = React.useState(0);
   const navigate = useNavigate();
 
+  // useEffect(() => {
+  //   if (params.id) {
+  //     getProductById(params.id).then((data) => {
+  //       dispatch(setProduct(data));
+  //     });
+  //   }
+  // }, [params.id]);
+
   useEffect(() => {
-    if (params.id) {
-      getProductById(params.id).then((data) => {
-        dispatch(setProduct(data));
-      });
+    const product = DUMMYPRODUCTS.find((product) => product.id === params.id);
+    if (product) {
+      dispatch(setProduct(product));
     }
   }, [params.id]);
 
